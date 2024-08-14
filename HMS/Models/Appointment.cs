@@ -1,0 +1,40 @@
+﻿using HMS.Models;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace HMS.Models
+{
+    public class Appointment
+    {
+        [Key]
+        public Guid Id { get; set; } // UUID
+
+        [Required]
+        public Guid PatientId { get; set; } // Foreign Key
+
+        [ForeignKey(nameof(PatientId))]
+        public Patient Patient { get; set; } // Navigation property
+
+        [Required]
+        public Guid DoctorId { get; set; } // Foreign Key
+
+        [ForeignKey(nameof(DoctorId))]
+        public Doctor Doctor { get; set; } // Navigation property
+
+        [Required]
+        public DateTime AppointmentDate { get; set; } // Timestamp
+
+        [Required]
+        [MaxLength(20)]
+        public string AppointmentStatus { get; set; } // Status e.g., scheduled, completed, canceled
+
+        public string Notes { get; set; } // Optional notes
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
+        public Billing Billing { get; set; }
+    }
+}

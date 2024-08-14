@@ -30,12 +30,12 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddControllers().AddJsonOptions(x =>
     x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-builder.Services.AddScoped<ILibriRepository, LibriRepository>();
-builder.Services.AddScoped<IKategoriaRepository, KategoriaRepository>();
-builder.Services.AddScoped<IAutoriRepository, AutoriRepository>();
-builder.Services.AddScoped<IKategoriaELibritRepository, KategoriaELibritRepository>();
-builder.Services.AddScoped<IAutoriILibritRepository, AutoriILibritRepository>();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+//builder.Services.AddScoped<ILibriRepository, LibriRepository>();
+//builder.Services.AddScoped<IKategoriaRepository, KategoriaRepository>();
+//builder.Services.AddScoped<IAutoriRepository, AutoriRepository>();
+//builder.Services.AddScoped<IKategoriaELibritRepository, KategoriaELibritRepository>();
+//builder.Services.AddScoped<IAutoriILibritRepository, AutoriILibritRepository>();
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 
@@ -48,7 +48,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 // Add Identity services
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<DataContext>()
     .AddDefaultTokenProviders();
 
