@@ -11,13 +11,12 @@ namespace HMS.Models
         public Guid Id { get; set; } // UUID
 
         [Required]
-        public Guid PatientId { get; set; } // Foreign Key
+        public string PatientId { get; set; } // Foreign Key
 
-        [ForeignKey(nameof(PatientId))]
         public Patient Patient { get; set; } // Navigation property
 
         [Required]
-        public Guid DoctorId { get; set; } // Foreign Key
+        public string DoctorId { get; set; } // Foreign Key
 
         [ForeignKey(nameof(DoctorId))]
         public Doctor Doctor { get; set; } // Navigation property

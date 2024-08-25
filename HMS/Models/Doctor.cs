@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HMS.Models
 {
-    public class Doctor : IdentityUser
+    public class Doctor : ApplicationUser
     {
         [Required]
         [MaxLength(50)]
@@ -17,13 +17,6 @@ namespace HMS.Models
         [Required]
         [MaxLength(100)]
         public string Specialty { get; set; }
-
-        [Phone]
-        [MaxLength(15)]
-        public override string PhoneNumber { get; set; }
-
-        [EmailAddress]
-        public override string Email { get; set; }
 
         [Required]
         public TimeSpan BeginsShift { get; set; }

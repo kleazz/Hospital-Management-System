@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HMS.Models
 {
-    public class Patient : IdentityUser
+    public class Patient : ApplicationUser
     {
         // ID (UUID) is inherited from ApplicationUser
 
@@ -22,19 +22,8 @@ namespace HMS.Models
         [MaxLength(10)]
         public string Gender { get; set; }
 
-        [Required]
-        [Phone]
-        [MaxLength(15)]
-        public override string PhoneNumber { get; set; }
-
-        [Required]
-        [EmailAddress]
-        public override string Email { get; set; }  // Email is inherited but can be overridden for custom validation
-
         [MaxLength(250)]
         public string Address { get; set; }
-
-        public EmergencyContact EmergencyContact { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
@@ -42,21 +31,5 @@ namespace HMS.Models
         public ICollection<Appointment> Appointments { get; set; }
         public ICollection<Report> Reports { get; set; }
 
-    }
-
-    public class EmergencyContact
-    {
-        [Required]
-        [MaxLength(50)]
-        public string Name { get; set; }
-
-        [Required]
-        [MaxLength(50)]
-        public string Relation { get; set; }
-
-        [Required]
-        [Phone]
-        [MaxLength(15)]
-        public string PhoneNumber { get; set; }
     }
 }

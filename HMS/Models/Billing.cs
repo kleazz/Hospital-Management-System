@@ -11,9 +11,6 @@ namespace HMS.Models
         public Guid Id { get; set; } // Primary Key
 
         [Required]
-        public Guid PatientId { get; set; } // Foreign Key to Patients table
-
-        [Required]
         public Guid AppointmentId { get; set; } // Foreign Key to Appointments table
 
         [ForeignKey(nameof(AppointmentId))]
