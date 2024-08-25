@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
         {
             var frontendURL = configuration.GetValue<string>("frontend_url");
 
-            options.AddDefaultPolicy(bulider =>
+            options.AddDefaultPolicy(builder=>
             {
                 builder.WithOrigins(frontendURL).AllowAnyMethod().AllowAnyHeader();
             });
@@ -35,7 +35,7 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 //builder.Services.AddScoped<IAutoriRepository, AutoriRepository>();
 //builder.Services.AddScoped<IKategoriaELibritRepository, KategoriaELibritRepository>();
 //builder.Services.AddScoped<IAutoriILibritRepository, AutoriILibritRepository>();
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 
