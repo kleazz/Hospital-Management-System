@@ -22,31 +22,45 @@ namespace HMS.Controllers
 
         // GET: api/Reports
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Report>>> GetReports()
+        public async Task<ActionResult<IEnumerable<ReportDto>>> GetReports()
         {
             if (_context.Reports == null)
             {
                 return NotFound();
             }
-            return await _context.Reports.Include(r => r.Patient).Include(r => r.Doctor).ToListAsync();
+
+            var reports = await _context.Reports
+                .Include(r => r.Patient)
+                .Include(r => r.Doctor)
+                .ToListAsync();
+
+            var reportDtos = _mapper.Map<IEnumerable<ReportDto>>(reports);
+
+            return Ok(reportDtos);
         }
 
         // GET: api/Reports/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Report>> GetReport(int id)
+        public async Task<ActionResult<ReportDto>> GetReport(int id)
         {
             if (_context.Reports == null)
             {
                 return NotFound();
             }
-            var report = await _context.Reports.Include(r => r.Patient).Include(r => r.Doctor).FirstOrDefaultAsync(r => r.Id == id);
+
+            var report = await _context.Reports
+                .Include(r => r.Patient)
+                .Include(r => r.Doctor)
+                .FirstOrDefaultAsync(r => r.Id == id);
 
             if (report == null)
             {
                 return NotFound();
             }
 
-            return report;
+            var reportDto = _mapper.Map<ReportDto>(report);
+
+            return Ok(reportDto);
         }
 
         // PUT: api/Reports/5
@@ -88,7 +102,7 @@ namespace HMS.Controllers
 
         // POST: api/Reports
         [HttpPost]
-        public async Task<ActionResult<Report>> PostReport(ReportDto reportDto)
+        public async Task<ActionResult<ReportDto>> PostReport(ReportDto reportDto)
         {
             if (reportDto == null)
             {
@@ -102,7 +116,7 @@ namespace HMS.Controllers
             _context.Reports.Add(report);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetReport", new { id = report.Id }, report);
+            return CreatedAtAction("GetReport", new { id = report.Id }, _mapper.Map<ReportDto>(report));
         }
 
         // DELETE: api/Reports/5
