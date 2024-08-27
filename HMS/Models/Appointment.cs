@@ -8,7 +8,7 @@ namespace HMS.Models
     public class Appointment
     {
         [Key]
-        public Guid Id { get; set; } // UUID
+        public int Id { get; set; } 
 
         [Required]
         public string PatientId { get; set; } // Foreign Key

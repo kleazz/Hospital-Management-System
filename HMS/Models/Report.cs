@@ -8,7 +8,7 @@ namespace HMS.Models
     public class Report
     {
         [Key]
-        public Guid Id { get; set; } // Primary Key
+        public int Id { get; set; } // Primary Key
 
         [Required]
         public string PatientId { get; set; } // Foreign Key to Patients table

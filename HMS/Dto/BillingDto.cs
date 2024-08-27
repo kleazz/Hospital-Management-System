@@ -8,10 +8,10 @@ namespace HMS.Dto
     public class BillingDto
     {
         [Key]
-        public Guid Id { get; set; } // Primary Key
+        public int Id { get; set; } // Primary Key
 
         [Required]
-        public Guid AppointmentId { get; set; } // Foreign Key to Appointments table
+        public int AppointmentId { get; set; } // Foreign Key to Appointments table
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]

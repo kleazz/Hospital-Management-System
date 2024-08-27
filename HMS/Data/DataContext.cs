@@ -35,13 +35,15 @@ namespace HMS.Data
             .HasMany(p => p.Appointments)
             .WithOne(a => a.Patient)
             .HasForeignKey(a => a.PatientId)
-            .IsRequired();
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Patient>()
            .HasMany(p => p.Reports)
            .WithOne(r => r.Patient)
            .HasForeignKey(r => r.PatientId)
-           .IsRequired();
+           .IsRequired()
+           .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Doctor>()
             .HasMany(d => d.Appointments)
@@ -54,7 +56,8 @@ namespace HMS.Data
            .HasMany(d => d.Reports)
            .WithOne(r => r.Doctor)
            .HasForeignKey(r => r.DoctorId)
-           .IsRequired();
+           .IsRequired()
+           .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Billing>()
                .HasOne(b => b.Appointment)

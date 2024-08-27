@@ -8,10 +8,10 @@ namespace HMS.Models
     public class Billing
     {
         [Key]
-        public Guid Id { get; set; } // Primary Key
+        public int Id { get; set; } // Primary Key
 
         [Required]
-        public Guid AppointmentId { get; set; } // Foreign Key to Appointments table
+        public int AppointmentId { get; set; } // Foreign Key to Appointments table
 
         [ForeignKey(nameof(AppointmentId))]
         public Appointment Appointment { get; set; } // Navigation property for Appointment

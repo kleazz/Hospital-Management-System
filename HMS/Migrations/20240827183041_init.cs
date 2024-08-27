@@ -204,7 +204,8 @@ namespace HMS.Migrations
                 name: "Appointments",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     PatientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DoctorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     AppointmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -234,7 +235,8 @@ namespace HMS.Migrations
                 name: "Reports",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     PatientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DoctorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ReportDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -264,8 +266,9 @@ namespace HMS.Migrations
                 name: "Billings",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AppointmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AppointmentId = table.Column<int>(type: "int", nullable: false),
                     Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     PaymentStatus = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: false),

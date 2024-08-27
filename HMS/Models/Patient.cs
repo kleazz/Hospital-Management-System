@@ -5,7 +5,7 @@ namespace HMS.Models
 {
     public class Patient : ApplicationUser
     {
-        // ID (UUID) is inherited from ApplicationUser
+        // ID is inherited from ApplicationUser
 
         [Required]
         [MaxLength(50)]
