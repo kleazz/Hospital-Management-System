@@ -12,8 +12,6 @@ namespace HMS.Dto
         [Required]
         public string PatientId { get; set; } // Foreign Key
 
-        public Patient Patient { get; set; } // Navigation property
-
         [Required]
         public string DoctorId { get; set; } // Foreign Key
 
