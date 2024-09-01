@@ -15,7 +15,7 @@ import MuiCard from '@mui/material/Card';
 import { Link } from 'react-router-dom';
 import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 // import ForgotPassword from './ForgotPassword';
-import getSignInTheme from '../theme/getSignInTheme';
+import getTheme from '../theme/getTheme';
 // import { GoogleIcon, FacebookIcon, SitemarkIcon } from './CustomIcons';
 // import TemplateFrame from './TemplateFrame';
 
@@ -40,7 +40,7 @@ const Card = styled(MuiCard)(({ theme }) => ({
 
 const SignInContainer = styled(Stack)(({ theme }) => ({
   height: '100%',
-  padding: 70,
+  padding: 150,
   backgroundImage:
     'radial-gradient(ellipse at 50% 50%, hsl(210, 100%, 97%), hsl(0, 0%, 100%))',
   backgroundRepeat: 'no-repeat',
@@ -54,7 +54,7 @@ export default function SignIn() {
   const [mode, setMode] = React.useState('light');
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const defaultTheme = createTheme({ palette: { mode } });
-  const SignInTheme = createTheme(getSignInTheme(mode));
+  const SignInTheme = createTheme(getTheme(mode));
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
@@ -75,15 +75,6 @@ export default function SignIn() {
       setMode(systemPrefersDark ? 'dark' : 'light');
     }
   }, []);
-
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -212,27 +203,6 @@ export default function SignIn() {
                   </Link>
                 </span>
               </Typography>
-            </Box>
-            <Divider>or</Divider>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="outlined"
-                onClick={() => alert('Sign in with Google')}
-                // startIcon={<GoogleIcon />}
-              >
-                Sign in with Google
-              </Button>
-              <Button
-                type="submit"
-                fullWidth
-                variant="outlined"
-                onClick={() => alert('Sign in with Facebook')}
-                // startIcon={<FacebookIcon />}
-              >
-                Sign in with Facebook
-              </Button>
             </Box>
           </Card>
         </SignInContainer>

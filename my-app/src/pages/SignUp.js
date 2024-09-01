@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import MuiCard from "@mui/material/Card";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-import getSignUpTheme from "../theme/getSignUpTheme";
+import getTheme from "../theme/getTheme";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -51,7 +51,7 @@ export default function SignUp() {
   const [mode, setMode] = React.useState("light");
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const defaultTheme = createTheme({ palette: { mode } });
-  const SignUpTheme = createTheme(getSignUpTheme(mode));
+  const SignUpTheme = createTheme(getTheme(mode));
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
   const [passwordError, setPasswordError] = React.useState(false);
@@ -209,25 +209,6 @@ export default function SignUp() {
                   </Link>
                 </span>
               </Typography>
-            </Box>
-            <Divider>
-              <Typography sx={{ color: "text.secondary" }}>or</Typography>
-            </Divider>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              <Button
-                fullWidth
-                variant="outlined"
-                onClick={() => alert("Sign up with Google")}
-              >
-                Sign up with Google
-              </Button>
-              <Button
-                fullWidth
-                variant="outlined"
-                onClick={() => alert("Sign up with Facebook")}
-              >
-                Sign up with Facebook
-              </Button>
             </Box>
           </Card>
         </Stack>
