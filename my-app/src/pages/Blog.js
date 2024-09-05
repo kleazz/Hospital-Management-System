@@ -2,11 +2,11 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AppAppBar from '../components/AppAppBar';
+import AppAppBar from '../components/AppBar';
 import MainContent from '../components/MainContent';
 import Latest from '../components/Latest';
 import Footer from '../components/Footer';
-import TemplateFrame from './TemplateFrame';
+// import TemplateFrame from './TemplateFrame';
 
 import getTheme from '../theme/getTheme';
 
@@ -30,23 +30,13 @@ export default function Blog() {
     }
   }, []);
 
-  const toggleColorMode = () => {
-    const newMode = mode === 'dark' ? 'light' : 'dark';
-    setMode(newMode);
-    localStorage.setItem('themeMode', newMode); // Save the selected mode to localStorage
-  };
-
-  const toggleCustomTheme = () => {
-    setShowCustomTheme((prev) => !prev);
-  };
-
   return (
-    <TemplateFrame
-      toggleCustomTheme={toggleCustomTheme}
-      showCustomTheme={showCustomTheme}
-      mode={mode}
-      toggleColorMode={toggleColorMode}
-    >
+    // <TemplateFrame
+    //   toggleCustomTheme={toggleCustomTheme}
+    //   showCustomTheme={showCustomTheme}
+    //   mode={mode}
+    //   toggleColorMode={toggleColorMode}
+    // >
       <ThemeProvider theme={showCustomTheme ? blogTheme : defaultTheme}>
         <CssBaseline enableColorScheme />
         <AppAppBar />
@@ -60,6 +50,6 @@ export default function Blog() {
         </Container>
         <Footer />
       </ThemeProvider>
-    </TemplateFrame>
+    // </TemplateFrame>
   );
 }
