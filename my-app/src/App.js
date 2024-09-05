@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Blog from './pages/Blog';
+import Dashboard from './pages/Dashboard';
 
 const darkTheme = createTheme({
   palette: {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path ="" element={<Blog/>}/>
+        <Route path ="/dashboard" element = {<Dashboard/>}/>
         {/* Other routes */}
       </Routes>
     </ThemeProvider>
