@@ -1,27 +1,35 @@
 ﻿using AutoMapper;
 using HMS.Models;
 using HMS.Dto;
+using BibliotekaMS.Dto;
+using BibliotekaMS.Models;
 
 namespace HMS.Helper
 {
     public class MappingProfiles : Profile
     {
-        public MappingProfiles()
-        {
-            CreateMap<Doctor, DoctorDto>();
-            CreateMap<DoctorDto, Doctor>();
+            public MappingProfiles()
+            {
+                CreateMap<Libri, LibriDto>();
+                CreateMap<LibriDto, Libri>();
 
-            CreateMap<Patient, PatientDto>();
-            CreateMap<PatientDto, Patient>();
+                CreateMap<Kategoria, KategoriaDto>();
+                CreateMap<KategoriaDto, Kategoria>();
 
-            CreateMap<Report, ReportDto>();
-            CreateMap<ReportDto, Report>();
+                CreateMap<Autori, AutoriDto>();
+                CreateMap<AutoriDto, Autori>();
 
-            CreateMap<Appointment, AppointmentDto>();
-            CreateMap<AppointmentDto, Appointment>();
+                CreateMap<RezervimiDto, Rezervimi>();
+                CreateMap<Rezervimi, RezervimiDto>();
 
-            CreateMap<Billing, BillingDto>();
-            CreateMap<BillingDto, Billing>();
+                CreateMap<Huazimi, HuazimiDto>();
+                CreateMap<HuazimiDto, Huazimi>();
+
+                CreateMap<Review, ReviewDto>();
+                CreateMap<ReviewDto, Review>();
+
+                CreateMap<Huazimi, HuazimiDto>();
+                CreateMap<HuazimiDto, Huazimi>();
         }
     }
 }
